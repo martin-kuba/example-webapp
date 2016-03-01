@@ -42,7 +42,7 @@
         <!-- what to do when only "mvn" is run -->
         <defaultGoal>package</defaultGoal>
          <!-- war name-->
-        <finalName>${project.name}</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <!-- Java language version -->
             <plugin>
