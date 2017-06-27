@@ -7,6 +7,11 @@
     <packaging>war</packaging>
     <name>Example Webapp</name>
 
+    <scm>
+        <url>https://github.com/martin-kuba/example-webapp</url>
+        <developerConnection>scm:git:https://github.com/martin-kuba/example-webapp.git</developerConnection>
+    </scm>
+
     <developers>
         <developer>
             <name>Martin Kuba</name>
