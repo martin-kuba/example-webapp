@@ -28,7 +28,10 @@ jobs:
     # 2) create a new GitHub repo secret named SLACK_BOT_TOKEN at https://github.com/<user>/<repo>/settings/secrets
     # 3) invite the App to the desired channel
 
-
+  notify_slack:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
     - name: Notify slack success
       if: success()
       env:
