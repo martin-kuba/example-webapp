@@ -1,4 +1,4 @@
-name: PR ${{ github.event.number }} by ${{ github.actor }}
+name: Maven CI build
 on: [ pull_request ]
 jobs:
   test:
