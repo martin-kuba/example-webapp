@@ -52,4 +52,7 @@ jobs:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       uses: pullreminders/slack-action@master
       with:
-        args: '{\"channel\":\"github\",\"text\":\"Hello world\"}'
+        args: >
+          { "channel":"github",
+            "text": "CI build in ${{ github.repository}} triggered by ${{ github.event_name }}"
+          }
