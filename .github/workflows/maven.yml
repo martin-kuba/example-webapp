@@ -1,4 +1,4 @@
-name: Maven CI build
+name: Maven build
 on: [ pull_request ]
 jobs:
   test:
