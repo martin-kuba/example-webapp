@@ -21,7 +21,15 @@ jobs:
           ${{ runner.os }}-maven-jdk${{ matrix.java }}-
     - name: Build with Maven
       run: mvn -B clean install
-
+    - name: Notify slack fail
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1
+        with:
+          channel: github
+          status: FAILED
+          color: danger
     # Slack Notify Build action, see https://github.com/marketplace/actions/slack-notify-build
     # 1) create a Slack bot token as described in https://github.com/marketplace/actions/post-slack-message
     #    i.e. go to https://api.slack.com/apps and create a new App, create a bot user, then install the App, get bot token
@@ -41,12 +49,4 @@ jobs:
         channel: github
         status: OK
         color: good
-    - name: Notify slack fail
-      if: failure()
-      env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      uses: voxmedia/github-action-slack-notify-build@v1
-      with:
-        channel: github
-        status: FAILED
-        color: danger
+
