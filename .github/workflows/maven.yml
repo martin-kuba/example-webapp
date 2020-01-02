@@ -1,4 +1,4 @@
-name: GitHub CI
+name: Maven tests
 on: [push, pull_request]
 jobs:
   test:
@@ -28,31 +28,21 @@ jobs:
     # 2) create a new GitHub repo secret named SLACK_BOT_TOKEN at https://github.com/<user>/<repo>/settings/secrets
     # 3) invite the App to the desired channel
 
-#    - name: Notify slack success
-#      if: success()
-#      env:
-#        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-#      uses: voxmedia/github-action-slack-notify-build@v1
-#      with:
-#        channel: github
-#        status: SUCCESS
-#        color: good
-#    - name: Notify slack fail
-#      if: failure()
-#      env:
-#        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-#      uses: voxmedia/github-action-slack-notify-build@v1
-#      with:
-#        channel: github
-#        status: FAILED
-#        color: danger
-
-    - name: Notify slack
+    - name: Notify slack success
+      if: success()
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      uses: pullreminders/slack-action@master
+      uses: voxmedia/github-action-slack-notify-build@v1
       with:
-        args: >
-          { "channel":"github",
-            "text": "CI build in ${{ github.repository}} triggered by ${{ github.event_name }}"
-          }
+        channel: github
+        status: OK
+        color: good
+    - name: Notify slack fail
+      if: failure()
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        channel: github
+        status: FAILED
+        color: danger
