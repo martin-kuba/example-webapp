@@ -22,6 +22,6 @@ public class ExampleTest {
 			if(1==1) throw new NullPointerException();
 			fail("should throw NullPointerException");
 		} catch (NullPointerException ex) {
-//		}
+		}
 	}
 }
