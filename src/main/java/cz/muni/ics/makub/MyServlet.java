@@ -21,6 +21,6 @@ public class MyServlet extends HttpServlet {
         resp.setContentType("text/plain;charset=utf-8");
         try(PrintWriter out = resp.getWriter()) {
             out.println("Servlet Engine: "+getServletContext().getServerInfo());
-        }
+        //}
     }
 }

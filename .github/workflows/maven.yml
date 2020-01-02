@@ -1,12 +1,12 @@
-name: Maven build
+name: PR ${{ github.event.number }} by ${{ github.actor }}
 on: [ pull_request ]
 jobs:
   test:
+    name: JDK ${{ matrix.java }} build
     runs-on: ubuntu-latest
     strategy:
       matrix:
         java: [ '8' ]
-    name: Java ${{ matrix.java }} build
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK ${{ matrix.java }}
