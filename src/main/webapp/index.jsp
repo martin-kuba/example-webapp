@@ -220,10 +220,6 @@
         <td> pageContext.servletConfig.servletName</td>
         <td> ${pageContext.servletConfig.servletName} </td>
     </tr>
-    <tr>
-        <td> javax.servlet.jsp.JspFactory</td>
-        <td> <%=javax.servlet.jsp.JspFactory.getDefaultFactory().getEngineInfo().getSpecificationVersion()%></td>
-    </tr>
 </table>
 
  <hr width="90%">
@@ -308,7 +304,5 @@
       %>
   </table>
 
- <h2>application attribute org.apache.tomcat.util.scan.MergedWebXml</h2>
- <pre style="border: 1px solid black; background-color: aliceblue;"><c:out value="${applicationScope['org.apache.tomcat.util.scan.MergedWebXml']}"/></pre>
 </body>
 </html>
